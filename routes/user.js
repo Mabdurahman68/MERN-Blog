@@ -7,9 +7,6 @@ const requiredLogin = require("../middleware/requiredLogin")
 const Post = mongoose.model("Post")
 const User = mongoose.model("User")
 
-router.get("/", (req, res) => {
-  res.send("done")
-})
 
 router.get("/user/:id", requiredLogin, (req, res) => {
   User.findOne({ _id: req.params.id })
