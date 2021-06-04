@@ -1,5 +1,5 @@
 const express = require("express");
-
+const cors = require("cors");
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -24,6 +24,7 @@ mongoose.connection.on("error", (err) => {
 require('./models/user')
 require('./models/post')
 
+app.use(cors())
 app.use(express.json())
 
 app.use(require('./routes/auth'))
